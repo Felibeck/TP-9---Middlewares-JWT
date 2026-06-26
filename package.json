@@ -1,0 +1,23 @@
+{
+  "name": "watchgram-backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Felibeck/TP-9---Middlewares-JWT#readme",
+  "bugs": {
+    "url": "https://github.com/Felibeck/TP-9---Middlewares-JWT/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felibeck/TP-9---Middlewares-JWT.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
