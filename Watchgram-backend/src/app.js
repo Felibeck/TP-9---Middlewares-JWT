@@ -8,7 +8,6 @@ import pool from './config/db.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-// Test commit
 
 app.use(cors());
 app.use(express.json());
