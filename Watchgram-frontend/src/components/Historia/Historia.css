@@ -1,0 +1,50 @@
+.historia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 96px;
+}
+
+/* Imagen circular con anillo de gradiente */
+.historia-foto-wrapper {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  padding: 3px; /* espacio para el anillo */
+  background: linear-gradient(135deg,#f09433,#e6683c 40%,#dc2743 60%,#cc2366 80%,#bc1888);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.historia-img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid #fff; /* borde blanco interior como Instagram */
+}
+
+.historia-username {
+  font-size: 13px;
+  color: var(--text-primary, #222);
+  max-width: 88px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Cuando haya un contenedor horizontal de historias, asegurar separación consistente */
+.historias-list {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px;
+  overflow-x: auto;
+}
