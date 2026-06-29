@@ -1,7 +1,7 @@
 {
   "name": "watchgram-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend REST API para WatchGram con autenticación JWT",
   "homepage": "https://github.com/Felibeck/TP-9---Middlewares-JWT#readme",
   "bugs": {
     "url": "https://github.com/Felibeck/TP-9---Middlewares-JWT/issues"
@@ -13,11 +13,18 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^5.2.1"
-  }
+    "express": "^5.2.1",
+    "pg": "^8.11.3",
+    "jsonwebtoken": "^9.1.2",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {}
 }
