@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "install": "npm install --prefix Watchgram-backend && npm install --prefix Watchgram-frontend",
-    "dev": "concurrently \"npm run dev --prefix Watchgram-backend\" \"npm run dev --prefix Watchgram-frontend\"",
+    "dev": "concurrently -n Backend,Frontend \"npm run dev --prefix Watchgram-backend\" \"npm run dev --prefix Watchgram-frontend\"",
     "backend": "npm run dev --prefix Watchgram-backend",
     "frontend": "npm run dev --prefix Watchgram-frontend"
   },
