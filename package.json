@@ -1,18 +1,30 @@
 {
-  "name": "watchgram",
+  "name": "watchgram-backend",
   "version": "1.0.0",
-  "description": "WatchGram - Social media app for luxury watch photography",
-  "type": "module",
-  "scripts": {
-    "install": "npm install --prefix Watchgram-backend && npm install --prefix Watchgram-frontend",
-    "dev": "concurrently -n Backend,Frontend \"npm run dev --prefix Watchgram-backend\" \"npm run dev --prefix Watchgram-frontend\"",
-    "backend": "npm run dev --prefix Watchgram-backend",
-    "frontend": "npm run dev --prefix Watchgram-frontend"
+  "description": "Backend REST API para WatchGram con autenticación JWT",
+  "homepage": "https://github.com/Felibeck/TP-9---Middlewares-JWT#readme",
+  "bugs": {
+    "url": "https://github.com/Felibeck/TP-9---Middlewares-JWT/issues"
   },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felibeck/TP-9---Middlewares-JWT.git"
   },
-  "keywords": ["express", "react", "postgresql", "jwt"],
+  "license": "ISC",
   "author": "",
-  "license": "ISC"
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3"
+  }
 }

@@ -16,10 +16,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api/publicaciones', publicacionesRoutes);
 app.use('/api/usuarios', usuariosRoutes);
 
-app.get('/api/health', (_, res) => {
-  res.status(200).json({ message: 'Servidor funcionando correctamente' });
-});
-
 app.use((err, _, res, next) => {
   console.error('Error:', err.message);
   res.status(err.status || 500).json({ message: err.message || 'Error interno del servidor' });
