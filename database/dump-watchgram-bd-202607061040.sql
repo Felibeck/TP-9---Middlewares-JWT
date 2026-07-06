@@ -5,7 +5,30 @@
 -- Dumped from database version 16.2
 -- Dumped by pg_dump version 16.2
 
--- Started on 2026-06-26 11:50:44
+-- Started on 2026-07-06 10:40:42
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 4799 (class 1262 OID 16398)
+-- Name: watchgram-bd; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE "watchgram-bd" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'Spanish_Argentina.1252';
+
+
+ALTER DATABASE "watchgram-bd" OWNER TO postgres;
+
+\connect -reuse-previous=on "dbname='watchgram-bd'"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +46,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 218 (class 1259 OID 16410)
+-- TOC entry 215 (class 1259 OID 16399)
 -- Name: publicaciones; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -40,7 +63,7 @@ CREATE TABLE public.publicaciones (
 ALTER TABLE public.publicaciones OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 16409)
+-- TOC entry 216 (class 1259 OID 16405)
 -- Name: publicaciones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -55,7 +78,7 @@ ALTER TABLE public.publicaciones ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
--- TOC entry 216 (class 1259 OID 16400)
+-- TOC entry 217 (class 1259 OID 16406)
 -- Name: usuarios; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -73,7 +96,7 @@ CREATE TABLE public.usuarios (
 ALTER TABLE public.usuarios OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1259 OID 16399)
+-- TOC entry 218 (class 1259 OID 16411)
 -- Name: usuarios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -88,41 +111,45 @@ ALTER TABLE public.usuarios ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 4793 (class 0 OID 16410)
--- Dependencies: 218
+-- TOC entry 4790 (class 0 OID 16399)
+-- Dependencies: 215
 -- Data for Name: publicaciones; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.publicaciones OVERRIDING SYSTEM VALUE VALUES (2, 1, 'https://ejemplo.com/gato-teclado.jpg', 'Intenté programar pero alguien tenía otros planes', 0, '2026-07-06 10:24:22.118223');
+INSERT INTO public.publicaciones OVERRIDING SYSTEM VALUE VALUES (1, 1, 'https://ejemplo.com/gato-durmiendo-caja.jpg', 'Mi gato encontró su nueva caja favorita, ahora vive ahí', 3, '2026-07-06 10:24:16.395324');
 
 
 --
--- TOC entry 4791 (class 0 OID 16400)
--- Dependencies: 216
+-- TOC entry 4792 (class 0 OID 16406)
+-- Dependencies: 217
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-
-
---
--- TOC entry 4799 (class 0 OID 0)
--- Dependencies: 217
--- Name: publicaciones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.publicaciones_id_seq', 1, false);
+INSERT INTO public.usuarios OVERRIDING SYSTEM VALUE VALUES (2, 'Michi Developer', 'michi@example.com', '$2a$10$gtdN2vTFPCWD5/cFu.JKjebYkfyyIgcaUjYBf5.ndqB.SR9FKyyN2', 'https://ejemplo.com/michi.jpg', NULL, 'michi_dev');
+INSERT INTO public.usuarios OVERRIDING SYSTEM VALUE VALUES (1, 'Gato Programador Senior', 'gato@example.com', '$2a$10$zhD0jKA4YiNvreAcjSKckeh2imIQyLbEMRp6D6RAcagDxPnWizBva', 'https://ejemplo.com/foto-nueva.jpg', 'Full stack developer especializado en siestas y teclados', 'gato_programador');
 
 
 --
 -- TOC entry 4800 (class 0 OID 0)
--- Dependencies: 215
+-- Dependencies: 216
+-- Name: publicaciones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.publicaciones_id_seq', 2, true);
+
+
+--
+-- TOC entry 4801 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: usuarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_id_seq', 1, false);
+SELECT pg_catalog.setval('public.usuarios_id_seq', 2, true);
 
 
 --
--- TOC entry 4645 (class 2606 OID 16417)
+-- TOC entry 4641 (class 2606 OID 16413)
 -- Name: publicaciones publicaciones_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -131,7 +158,7 @@ ALTER TABLE ONLY public.publicaciones
 
 
 --
--- TOC entry 4641 (class 2606 OID 16406)
+-- TOC entry 4643 (class 2606 OID 16415)
 -- Name: usuarios usuarios_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -140,7 +167,7 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
--- TOC entry 4643 (class 2606 OID 16408)
+-- TOC entry 4645 (class 2606 OID 16417)
 -- Name: usuarios usuarios_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -157,7 +184,7 @@ ALTER TABLE ONLY public.publicaciones
     ADD CONSTRAINT publicaciones_usuarios_fk FOREIGN KEY (id) REFERENCES public.usuarios(id) ON DELETE CASCADE;
 
 
--- Completed on 2026-06-26 11:50:44
+-- Completed on 2026-07-06 10:40:42
 
 --
 -- PostgreSQL database dump complete
