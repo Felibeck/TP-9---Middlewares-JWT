@@ -217,6 +217,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiZ2F0b19wcm9ncmFtYWRvciIsImlhdCI6MTc4MzM0MzEwNywiZXhwIjoxNzgzMzUwMzA3fQ.lDtRp0-0aIEuvqOtQSIVEXlaS7V4gpKtYC3Xsj8m7HU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/publicaciones/1/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"publicaciones",
+								"1",
+								"like"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

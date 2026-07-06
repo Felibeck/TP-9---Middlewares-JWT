@@ -66,10 +66,3 @@ export async function darLikePublicacion(id) {
   return result.rows[0];
 }
 
-export async function eliminarPublicacion(id) {
-  const result = await pool.query(
-    'DELETE FROM publicaciones WHERE id = $1 RETURNING id',
-    [id]
-  );
-  return result.rows[0];
-}

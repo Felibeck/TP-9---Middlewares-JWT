@@ -30,3 +30,22 @@ export async function crearPublicacion(req, res) {
     return res.status(500).json({ message: 'Error interno del servidor' });
   }
 }
+
+export async function darLikePublicacion(req, res) {
+  try {
+    const { id } = req.params;
+    const publicacionActualizada = await publicacionesService.darLikePublicacion(id);
+
+    if (!publicacionActualizada) {
+      return res.status(404).json({ message: 'Publicación no encontrada' });
+    }
+
+    return res.status(200).json({
+      message: 'Like agregado correctamente',
+      publicacion: publicacionActualizada
+    });
+  } catch (error) {
+    console.error('Error al dar like a la publicación:', error);
+    return res.status(500).json({ message: 'Error interno del servidor' });
+  }
+}
