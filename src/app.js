@@ -1,16 +1,27 @@
 import 'dotenv/config';
+import { createRequire } from 'module';
 import express from 'express';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
 import authRoutes from './routes/auth.js';
 import publicacionesRoutes from './routes/posts.js';
 import usuariosRoutes from './routes/users.js';
 import pool from './config/db.js';
+
+const require = createRequire(import.meta.url);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+
+try {
+  const swaggerFile = require('../swagger_output.json');
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+} catch {
+  console.warn('⚠ swagger_output.json no encontrado. Ejecutá "npm run swagger" para generar la documentación.');
+}
 
 app.use('/api/auth', authRoutes);
 app.use('/api/publicaciones', publicacionesRoutes);
