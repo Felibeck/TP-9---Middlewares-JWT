@@ -2,7 +2,7 @@
 // Ejecutar con: npm run swagger
 import swaggerAutogenFactory from 'swagger-autogen';
 
-const swaggerAutogen = swaggerAutogenFactory();
+const swaggerAutogen = swaggerAutogenFactory({ openapi: '3.0.0' });
 
 const doc = {
   openapi: '3.0.0',
